@@ -59,6 +59,47 @@ p<!DOCTYPE html>
       margin-top: 15px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+  /* ===== TEAM SECTION ===== */
+
+#team {
+  padding: 60px 20px;
+  background: #f0fff4;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.team-card {
+  background: #ffffff;
+  width: 300px;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.team-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.team-card h3 {
+  margin-top: 15px;
+  color: #2f855a;
+}
+
+.role {
+  font-weight: bold;
+  color: #22543d;
+  margin-bottom: 10px;
+}  
   </style>
 </head>
 
@@ -122,32 +163,68 @@ p<!DOCTYPE html>
   </div>
 </section>
 
-  <section id="team">
-  <h2>Our Admin, Members & Volunteers</h2>
+<section id="team">
+  <h2>Admin, Moderators & Volunteers</h2>
 
-  <div class="card">
-    <p>
-      <strong>Admin Team</strong><br>
-      Our admin team plans environmental programs, manages campaigns,
-      handles social media, and guides all volunteers to work in the right direction.
-    </p>
-  </div>
+  <div class="team-container">
 
-  <div class="card">
-    <h3>Members & Volunteers</h3>
+    <!-- Admin -->
+    <div class="team-card">
+      <a href="images/admin.jpg" target="_blank">
+        <img src="images/admin.jpg" alt="Admin">
+      </a>
+      <h3>Dr. Tapas Kumar Ghosh</h3>
+      <div class="role">Admin</div>
+      <p>
+        Leads environmental planning, plastic awareness campaigns,
+        social media outreach and community coordination.
+      </p>
+    </div>
 
-    <p>
-      🌱 <strong>Dr.Tapas Kumar Ghosh</strong> – Tree Plantation Coordinator<br>
-      📸 <strong>Subham Ghosh</strong> – Photographer & Videographer<br>
-      📢 <strong>Dr.Abhishek Sen</strong> – Awareness Campaign Volunteer<br>
-      🎥 <strong>Ananya Sen</strong> – Social Media & Video Editor
-    </p>
+    <!-- Moderators -->
+    <div class="team-card">
+      <a href="images/moderators.jpg" target="_blank">
+        <img src="images/moderators.jpg" alt="Moderators">
+      </a>
+      <h3>Moderators</h3>
+      <div class="role">
+        Dr. Abhishek Sen<br>
+        Nirvik Banerjee<br>
+        Anirban<br>
+        Babuda
+      </div>
+      <p>
+        Leads environmental planning, plastic awareness campaigns,
+        social media outreach and community coordination.
+      </p>
+    </div>
 
-    <p>
-      Our volunteers actively participate in tree plantation drives,
-      cleanliness programs, photography, videography,
-      and spreading awareness both online and offline.
-    </p>
+    <!-- Volunteers -->
+    <div class="team-card">
+      <a href="images/volunteers.jpg" target="_blank">
+        <img src="images/volunteers.jpg" alt="Volunteers">
+      </a>
+      <h3>Volunteers</h3>
+      <div class="role">Rup, Ishika</div>
+      <p>
+        Actively involved in plantation drives, cleanliness programs
+        and community awareness activities.
+      </p>
+    </div>
+
+    <!-- Photographer -->
+    <div class="team-card">
+      <a href="images/photographer.jpg" target="_blank">
+        <img src="images/photographer.jpg" alt="Photographer">
+      </a>
+      <h3>Subham Ghosh</h3>
+      <div class="role">Photographer / Videographer</div>
+      <p>
+        Responsible for documenting plantation drives and environmental
+        activities through photography and videography.
+      </p>
+    </div>
+
   </div>
 </section>
 
