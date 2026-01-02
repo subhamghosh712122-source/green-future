@@ -212,7 +212,44 @@
 .youtube img:hover{
   transform:scale(1.05);
 }
-    
+    /* Impact Section */
+.impact-section {
+  background: #eaf7ee;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.impact-section h2 {
+  color: #2f855a;
+  margin-bottom: 30px;
+}
+
+.impact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.impact-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.impact-box .count {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2f855a;
+}
+
+.impact-box p {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
  </style>
 </head>
 
@@ -226,6 +263,33 @@
   <div class="tree-soft">🌳</div>
 
 </header>
+  <!-- 🌍 Impact Counter Section -->
+<section class="impact-section">
+  <h2>🌱 Our Environmental Impact</h2>
+
+  <div class="impact-container">
+    <div class="impact-box">
+      <span class="count" data-target="120">0</span>
+      <p>🌳 Trees Planted</p>
+    </div>
+
+    <div class="impact-box">
+      <span class="count" data-target="18">0</span>
+      <p>🧹 Clean-up Drives</p>
+    </div>
+
+    <div class="impact-box">
+      <span class="count" data-target="45">0</span>
+      <p>👥 Active Volunteers</p>
+    </div>
+
+    <div class="impact-box">
+      <span class="count" data-target="320">0</span>
+      <p>♻ Plastic Reduced (kg)</p>
+    </div>
+  </div>
+</section>
+  
   <div class="leaf">🍃</div>
 <div class="leaf">🍂</div>
 
@@ -511,6 +575,26 @@
   <span>🌿</span>
   <span>🍃</span>
 </div>
+<script>
+  const counters = document.querySelectorAll('.count');
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const current = +counter.innerText;
+      const increment = Math.ceil(target / 100);
+
+      if (current < target) {
+        counter.innerText = current + increment;
+        setTimeout(updateCount, 30);
+      } else {
+        counter.innerText = target + '+';
+      }
+    };
+
+    updateCount();
+  });
+</script>
   
 </body>
 </html>
