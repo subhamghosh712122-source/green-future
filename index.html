@@ -378,6 +378,66 @@
   max-width:1000px;
   margin:auto;
 }
+#wb-plastic {
+  padding: 40px 20px;
+  background: #f0fff4;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+#wb-plastic h2 {
+  text-align: center;
+  color: #2f855a;
+  margin-bottom: 15px;
+}
+
+.wb-text {
+  max-width: 950px;
+  margin: auto;
+  text-align: justify;
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.city-list {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.city-list button {
+  margin: 6px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #2f855a;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.city-list button:hover {
+  background: #22543d;
+}
+
+.city-images {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.city-images img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#cityCaption {
+  margin-top: 10px;
+  font-style: italic;
+  color: #444;
+}
+
     
     
  </style>
@@ -552,7 +612,37 @@
   </p>
 </section>
 
+<section id="wb-plastic">
+  <h2>♻️ পশ্চিমবঙ্গের প্রধান শহর ও প্লাস্টিক দূষণ</h2>
 
+  <p class="wb-text">
+    পশ্চিমবঙ্গের বিভিন্ন বড় শহরে দ্রুত নগরায়ন, জনসংখ্যা বৃদ্ধি এবং
+    অপরিকল্পিত বর্জ্য ব্যবস্থাপনার ফলে প্লাস্টিক দূষণ একটি গুরুতর সমস্যায়
+    পরিণত হয়েছে। বিশেষ করে হাওড়া, কলকাতা, বিধাননগর, আসানসোল এবং দুর্গাপুর
+    শহরগুলিতে প্রতিদিন বিপুল পরিমাণ পৌর বর্জ্য উৎপন্ন হয়, যার একটি বড় অংশ
+    হলো একবার ব্যবহারযোগ্য প্লাস্টিক। এই প্লাস্টিক বর্জ্য জলাশয়, নিকাশি
+    ব্যবস্থা ও খোলা জমিতে জমে পরিবেশ ও জনস্বাস্থ্যের উপর মারাত্মক প্রভাব ফেলছে।
+    নীচে শহরের নামগুলিতে ক্লিক করলে সংশ্লিষ্ট এলাকার প্লাস্টিক দূষণের বাস্তব
+    চিত্র দেখা যাবে।
+  </p>
+
+  <!-- City List -->
+  <div class="city-list">
+    <button onclick="showCity('howrah')">📍 হাওড়া</button>
+    <button onclick="showCity('kolkata')">📍 কলকাতা</button>
+    <button onclick="showCity('bidhannagar')">📍 বিধাননগর</button>
+    <button onclick="showCity('asansol')">📍 আসানসোল</button>
+    <button onclick="showCity('durgapur')">📍 দুর্গাপুর</button>
+  </div>
+
+  <!-- Image Display Area -->
+  <div class="city-images">
+    <img id="cityImage" src="" alt="Plastic Pollution Image">
+    <p id="cityCaption"></p>
+  </div>
+</section>
+
+  
   
 <section id="team">
   <h2>Admin, Moderators & Volunteers</h2>
@@ -858,6 +948,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 300);
 });
 </script>
+<script>
+function showCity(city) {
+  const img = document.getElementById("cityImage");
+  const caption = document.getElementById("cityCaption");
+
+  const data = {
+    howrah: {
+      src: "images/howrah-plastic.jpg",
+      text: "হাওড়া শহরের নিকাশি ও রাস্তায় জমে থাকা প্লাস্টিক বর্জ্য"
+    },
+    kolkata: {
+      src: "images/kolkata-plastic.jpg",
+      text: "কলকাতার বিভিন্ন এলাকায় প্লাস্টিক দূষণের বাস্তব চিত্র"
+    },
+    bidhannagar: {
+      src: "images/bidhannagar-plastic.jpg",
+      text: "বিধাননগরের আবাসিক ও বাজার এলাকায় প্লাস্টিক বর্জ্য"
+    },
+    asansol: {
+      src: "images/asansol-plastic.jpg",
+      text: "আসানসোল শিল্পাঞ্চলে প্লাস্টিক বর্জ্যের প্রভাব"
+    },
+    durgapur: {
+      src: "images/durgapur-plastic.jpg",
+      text: "দুর্গাপুর শহরের আশপাশে জমে থাকা প্লাস্টিক বর্জ্য"
+    }
+  };
+
+  img.src = data[city].src;
+  caption.innerText = data[city].text;
+  img.style.display = "block";
+}
+</script>
+  
   
   
 </body>
