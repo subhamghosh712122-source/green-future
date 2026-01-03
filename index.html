@@ -249,7 +249,36 @@
   margin-top: 10px;
   font-weight: 600;
 }
+.testimonial-section {
+  background: #f0fff4;
+  padding: 50px 20px;
+  text-align: center;
+}
 
+.testimonial-section h2 {
+  color: #2f855a;
+  margin-bottom: 30px;
+}
+
+.testimonial-box {
+  max-width: 700px;
+  margin: 20px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+.testimonial-box.active {
+  display: block;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 18px;
+}
+    
  </style>
 </head>
 
@@ -287,6 +316,31 @@
       <span class="count" data-target="320">0</span>
       <p>♻ Plastic Reduced (kg)</p>
     </div>
+  </div>
+</section>
+  
+  <section class="testimonial-section">
+  <h2>💬 What Our Community Says</h2>
+
+  <div class="testimonial-box">
+    <p class="quote">
+      “Green Future এর সাথে কাজ করে আমি বুঝেছি ছোট উদ্যোগেও বড় পরিবর্তন আনা যায়।”
+    </p>
+    <h4>— Rup, Volunteer</h4>
+  </div>
+
+  <div class="testimonial-box">
+    <p class="quote">
+      “Tree plantation আর plastic awareness drive গুলো সত্যিই inspiring.”
+    </p>
+    <h4>— Ishika, Volunteer</h4>
+  </div>
+
+  <div class="testimonial-box">
+    <p class="quote">
+      “Community coordination আর social outreach খুব ভালোভাবে পরিচালিত হয়।”
+    </p>
+    <h4>— Dr. Abhishek Sen</h4>
   </div>
 </section>
   
@@ -594,6 +648,19 @@
 
     updateCount();
   });
+</script>
+ <script>
+  let index = 0;
+  const testimonials = document.querySelectorAll('.testimonial-box');
+
+  function showTestimonial() {
+    testimonials.forEach(t => t.classList.remove('active'));
+    testimonials[index].classList.add('active');
+    index = (index + 1) % testimonials.length;
+  }
+
+  showTestimonial();
+  setInterval(showTestimonial, 4000);
 </script>
   
 </body>
