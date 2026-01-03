@@ -327,6 +327,38 @@
   background:#f0fff4;
 }
 
+  .local-area {
+  background: #ffffff;
+  margin: 40px 15px;
+  padding: 30px 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.local-area h2 {
+  color: #2f855a;
+  margin-bottom: 10px;
+}
+
+.area-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.local-area ul {
+  list-style: none;
+  padding: 0;
+}
+
+.local-area li {
+  font-size: 16px;
+  padding: 8px 0;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
     
  </style>
 </head>
@@ -341,6 +373,22 @@
   <div class="tree-soft">🌳</div>
 
 </header>
+  <!-- 🌍 Local Area Focus -->
+<section class="local-area">
+  <h2>🌍 Our Local Impact Area</h2>
+  <p class="area-text">
+    Our work focuses on local communities across West Bengal,
+    starting from nearby areas and growing step by step.
+  </p>
+
+  <ul id="areaList">
+    <li>📍 Belur Math</li>
+    <li>📍 Howrah</li>
+    <li>📍 Serampore (Shrirampur)</li>
+    <li>📍 Nearby community zones</li>
+  </ul>
+</section>
+  
 <section class="pledge-section">
   <h2>🌍 Take the Green Pledge</h2>
 
@@ -759,6 +807,18 @@ Each moment reflects our commitment to a greener future.
     update();
   });
 </script>
+  
+<script>
+  const areas = document.querySelectorAll("#areaList li");
 
+  areas.forEach((item, index) => {
+    setTimeout(() => {
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, index * 400);
+  });
+</script>
+
+  
 </body>
 </html>
