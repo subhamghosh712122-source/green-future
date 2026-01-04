@@ -1177,19 +1177,7 @@ function showCity(city) {
   img.style.display = "block";
 }  
 </script>
-  
   <script>
-function showBefore() {
-  document.getElementById("resultText").innerText =
-  "❌ প্লাস্টিক দূষণের আগে এলাকাগুলি ছিল নোংরা, ড্রেন ভর্তি প্লাস্টিক, দুর্গন্ধ, অসুস্থ পরিবেশ এবং জলাশয়ে বর্জ্যের স্তূপ।";
-}
-
-function showAfter() {
-  document.getElementById("resultText").innerText =
-  "✅ প্লাস্টিক মুক্ত উদ্যোগের পরে এলাকা পরিষ্কার, সবুজ গাছপালা, পরিষ্কার জলাশয়, স্বাস্থ্যকর পরিবেশ এবং সচেতন মানুষ দেখা যায়।";
-}
-</script>
-<script>
 const quizData = [
   {
     q: "প্লাস্টিক বোতল পরিবেশে সম্পূর্ণ নষ্ট হতে কত বছর লাগে?",
@@ -1278,16 +1266,14 @@ function checkAnswer(choice) {
 
 function nextQuestion() {
   current++;
+
   if (current < quizData.length) {
     loadQuestion();
   } else {
-    document.getElementById("quiz-box").innerHTML =
-      "<h3>🎉 Quiz শেষ!</h3><p>আপনার স্কোর: " + score + " / " + quizData.length + "</p>";
-  }
-}
-const siteLink = "https://subhamghosh712122-source.github.io/#plastic-quiz";
 
-const shareText = `🌍 Plastic Awareness Quiz 🌱
+    const siteLink = "https://subhamghosh712122-source.github.io/#plastic-quiz";
+
+    const shareText = `🌍 Plastic Awareness Quiz 🌱
 
 আমি ${score} / ${quizData.length} স্কোর করেছি!
 
@@ -1299,25 +1285,31 @@ ${siteLink}
 
 #PlasticFree #GreenFuture`;
 
-const whatsappLink = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+    const whatsappLink =
+      `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 
-document.getElementById("quiz-box").innerHTML += `
-  <br>
-  <a href="${whatsappLink}" target="_blank"
-     style="display:inline-block;
-            margin-top:15px;
-            padding:12px 20px;
-            background:#25D366;
-            color:white;
-            border-radius:25px;
-            text-decoration:none;
-            font-weight:bold;">
-     📲 Share & Invite Friends
-  </a>
-`;
+    document.getElementById("quiz-box").innerHTML = `
+      <h3>🎉 Quiz শেষ!</h3>
+      <p>আপনার স্কোর: ${score} / ${quizData.length}</p>
 
+      <a href="${whatsappLink}" target="_blank"
+        style="
+          display:inline-block;
+          margin-top:15px;
+          padding:12px 20px;
+          background:#25D366;
+          color:white;
+          border-radius:25px;
+          text-decoration:none;
+          font-weight:bold;">
+        📲 Share & Invite Friends
+      </a>
+    `;
+  }
+}
 </script>
-  
+
+ 
   
 
 
