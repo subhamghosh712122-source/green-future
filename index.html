@@ -1123,60 +1123,6 @@ Each moment reflects our commitment to a greener future.
     update();
   });
 </script>
-  
-<script>
-  const areas = document.querySelectorAll("#areaList li");
-
-  areas.forEach((item, index) => {
-    setTimeout(() => {
-      item.style.opacity = "1";
-      item.style.transform = "translateY(0)";
-    }, index * 400);
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const text = document.querySelector(".plantation-text");
-  text.style.opacity = "0";
-  text.style.transition = "opacity 1.5s ease";
-  setTimeout(() => {
-    text.style.opacity = "1";
-  }, 300);
-});
-</script>
-<script>
-function showCity(city) {
-  const img = document.getElementById("cityImage");
-  const caption = document.getElementById("cityCaption");
-
-  const data = {
-    howrah: {
-      src: "images/howrah.jpg",
-      text: "হাওড়া শহরের নিকাশি ও রাস্তায় জমে থাকা প্লাস্টিক বর্জ্য"
-    },
-    kolkata: {
-      src: "images/kolkata.jpg",
-      text: "কলকাতার বিভিন্ন এলাকায় প্লাস্টিক দূষণের বাস্তব চিত্র"
-    },
-    bidhannagar: {
-      src: "images/bidhannagar.jpg",
-      text: "বিধাননগরের আবাসিক ও বাজার এলাকায় প্লাস্টিক বর্জ্য"
-    },
-    asansol: {
-      src: "images/asansol.jpg",
-      text: "আসানসোল শিল্পাঞ্চলে প্লাস্টিক বর্জ্যের প্রভাব"
-    },
-    durgapur: {
-      src: "images/durgapur.jpg",
-      text: "দুর্গাপুর শহরের আশপাশে জমে থাকা প্লাস্টিক বর্জ্য"
-    }
-  };
-
-  img.src = data[city].src;
-  caption.innerText = data[city].text;
-  img.style.display = "block";
-}  
-</script>
   <script>
 const quizData = [
   {
@@ -1266,48 +1212,18 @@ function checkAnswer(choice) {
 
 function nextQuestion() {
   current++;
-
   if (current < quizData.length) {
     loadQuestion();
   } else {
-
-    const siteLink = "https://subhamghosh712122-source.github.io/#plastic-quiz";
-
-    const shareText = `🌍 Plastic Awareness Quiz 🌱
-
-আমি ${score} / ${quizData.length} স্কোর করেছি!
-
-আপনিও খেলুন ও জানুন 👇
-${siteLink}
-
-♻️ প্লাস্টিক দূষণ কমাতে আজ থেকেই সচেতন হই।
-🌱 Green Future এর সাথে যুক্ত হই।
-
-#PlasticFree #GreenFuture`;
-
-    const whatsappLink =
-      `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-
-    document.getElementById("quiz-box").innerHTML = `
-      <h3>🎉 Quiz শেষ!</h3>
-      <p>আপনার স্কোর: ${score} / ${quizData.length}</p>
-
-      <a href="${whatsappLink}" target="_blank"
-        style="
-          display:inline-block;
-          margin-top:15px;
-          padding:12px 20px;
-          background:#25D366;
-          color:white;
-          border-radius:25px;
-          text-decoration:none;
-          font-weight:bold;">
-        📲 Share & Invite Friends
-      </a>
-    `;
+    document.getElementById("quiz-box").innerHTML =
+      "<h3>🎉 Quiz শেষ!</h3><p>আপনার স্কোর: " + score + " / " + quizData.length + "</p>";
   }
 }
+
+loadQuestion();
 </script>
+
+
 
  
   
