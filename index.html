@@ -1285,11 +1285,14 @@ function nextQuestion() {
       "<h3>🎉 Quiz শেষ!</h3><p>আপনার স্কোর: " + score + " / " + quizData.length + "</p>";
   }
 }
+const siteLink = "https://subhamghosh712122-source.github.io/#plastic-quiz";
 
-loadQuestion();
-const shareText = `🌍 Plastic Awareness Quiz Result 🌱
+const shareText = `🌍 Plastic Awareness Quiz 🌱
 
 আমি ${score} / ${quizData.length} স্কোর করেছি!
+
+আপনিও খেলুন ও জানুন 👇
+${siteLink}
 
 ♻️ প্লাস্টিক দূষণ কমাতে আজ থেকেই সচেতন হই।
 🌱 Green Future এর সাথে যুক্ত হই।
@@ -1309,13 +1312,14 @@ document.getElementById("quiz-box").innerHTML += `
             border-radius:25px;
             text-decoration:none;
             font-weight:bold;">
-     📲 Share on WhatsApp
+     📲 Share & Invite Friends
   </a>
 `;
-  
+
 </script>
   
   
-  
+
+
 </body>
 </html>
