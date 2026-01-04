@@ -1287,6 +1287,32 @@ function nextQuestion() {
 }
 
 loadQuestion();
+const shareText = `🌍 Plastic Awareness Quiz Result 🌱
+
+আমি ${score} / ${quizData.length} স্কোর করেছি!
+
+♻️ প্লাস্টিক দূষণ কমাতে আজ থেকেই সচেতন হই।
+🌱 Green Future এর সাথে যুক্ত হই।
+
+#PlasticFree #GreenFuture`;
+
+const whatsappLink = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
+document.getElementById("quiz-box").innerHTML += `
+  <br>
+  <a href="${whatsappLink}" target="_blank"
+     style="display:inline-block;
+            margin-top:15px;
+            padding:12px 20px;
+            background:#25D366;
+            color:white;
+            border-radius:25px;
+            text-decoration:none;
+            font-weight:bold;">
+     📲 Share on WhatsApp
+  </a>
+`;
+  
 </script>
   
   
