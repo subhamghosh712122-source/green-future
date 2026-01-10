@@ -556,7 +556,63 @@
   color: white;
   cursor: pointer;
 }
+.pledge-card {
+  border: 2px solid #7bc47f;
+  box-shadow: 0 0 15px rgba(123, 196, 127, 0.4);
+  border-radius: 18px;
+  padding: 24px;
+  max-width: 420px;
+  margin: 40px auto;
+  text-align: center;
+  background: #f4fff6;
+}
 
+/* Heading */
+.pledge-card h2 {
+  color: #2f7d32;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.pledge-text {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.pledge-btn {
+  border: 2px solid #2f7d32;
+  border-radius: 30px;
+  background-color: #2f7d32;
+  color: white;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button hover */
+.pledge-btn:hover {
+  background-color: white;
+  color: #2f7d32;
+}
+
+/* Remove mobile tap highlight */
+.pledge-btn {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Count */
+.pledge-count {
+  margin-top: 16px;
+  font-weight: bold;
+  color: #2f7d32;
+}
+
+
+    
     
     
  </style>
@@ -589,15 +645,21 @@
 </section>
   
 <section 
-<button id="pledgeBtn" class="pledge-btn">
-  🌱 I Take the Pledge
-</button>
+<div class="pledge-card">
+  <h2>🌍 Take the Green Pledge</h2>
 
-<p>
-  🌳 <span id="pledgeCount">120</span> people have pledged
-</p>
-  
-  
+  <p class="pledge-text">
+    I pledge to reduce plastic use, plant trees, and spread environmental awareness.
+  </p>
+
+  <button id="pledgeBtn" class="pledge-btn">
+    🌱 I Take the Pledge
+  </button>
+
+  <p class="pledge-count">
+    🌳 <span id="pledgeCount">121</span> people have pledged
+  </p>
+</div>
 </section>
   
   <!-- 🌍 Impact Counter Section -->
@@ -1136,16 +1198,20 @@ Each moment reflects our commitment to a greener future.
     updateCount();
   });
 </script>
-  
-  <script>
-  let count = 120;
+ <script>
+  let count = 121;
 
   document.getElementById("pledgeBtn").addEventListener("click", function () {
     count++;
     document.getElementById("pledgeCount").innerText = count;
-    alert("✅ Thank you for taking the Green Pledge!");
+    this.innerText = "✅ Pledge Taken";
+    this.disabled = true;
+    this.style.opacity = "0.8";
   });
 </script>
+  
+
+  
   
  <script>
   let index = 0;
