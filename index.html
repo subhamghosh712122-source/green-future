@@ -628,6 +628,295 @@
   <div class="tree-soft">🌳</div>
 
 </header>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Tomorrow - Plant Trees Today</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f5c0f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Animated Background with subtle parallax */
+    .bg-layer {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+      opacity: 0.35;
+      animation: slowDrift 120s linear infinite;
+    }
+
+    @keyframes slowDrift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 5;
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 5.2rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 6px 20px rgba(0,0,0,0.7);
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 18px 50px;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: all 0.4s ease;
+      animation: fadeInUp 2.5s ease-out;
+    }
+
+    .cta:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(39,174,96,0.5);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      opacity: 0.7;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 15px); }
+    }
+
+    /* Tree Planting Scene - Center Bottom */
+    .scene {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 620px;
+      z-index: 3;
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 140px;
+      background: linear-gradient(to bottom, #4a2c0d, #3a220a);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
+
+    /* Person Animation Cycle */
+    .person {
+      position: absolute;
+      bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 8rem;
+      animation: plantCycle 12s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes plantCycle {
+      0%, 20%   { transform: translateX(-50%) translateY(0) rotate(0deg); }
+      30%, 50%  { transform: translateX(-50%) translateY(-30px) rotate(-10deg); } /* digging */
+      60%, 80%  { transform: translateX(-50%) translateY(-10px) rotate(5deg); }  /* planting */
+      85%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }     /* watering / reset */
+    }
+
+    /* Growing Tree with better animation */
+    .tree-wrapper {
+      position: absolute;
+      bottom: 120px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.3);
+      transform-origin: bottom center;
+      animation: growFull 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 2s;
+    }
+
+    .tree {
+      width: 320px;
+      height: 480px;
+      animation: gentleSway 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes growFull {
+      0%   { transform: translateX(-50%) scale(0.1) rotate(0deg); opacity: 0; }
+      100% { transform: translateX(-50%) scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    @keyframes gentleSway {
+      0%   { transform: rotate(-3deg); }
+      100% { transform: rotate(3deg); }
+    }
+
+    /* Falling leaves effect */
+    .leaf {
+      position: absolute;
+      width: 20px;
+      height: 10px;
+      background: #2ecc71;
+      border-radius: 50% 0;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    .leaf:nth-child(1) { left: 40%; animation-duration: 8s; animation-delay: 0s; }
+    .leaf:nth-child(2) { left: 55%; animation-duration: 10s; animation-delay: 2s; }
+    .leaf:nth-child(3) { left: 65%; animation-duration: 7s; animation-delay: 4s; }
+
+    @keyframes fall {
+      0%   { transform: translateY(-100px) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(600px) rotate(720deg); opacity: 0; }
+    }
+
+    /* Glassmorphism DateTime */
+    .datetime {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 20px 30px;
+      border-radius: 20px;
+      z-index: 10;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+
+    .date {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    .time {
+      font-size: 2.8rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 4rem; }
+      .subtitle { font-size: 1.6rem; }
+      .scene { width: 380px; height: 500px; transform: translateX(-50%) scale(0.8); }
+      .datetime { top: 20px; right: 20px; padding: 15px 20px; }
+      .time { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="bg-layer"></div>
+
+    <!-- Live Date & Time (Glassmorphism) -->
+    <div class="datetime">
+      <div class="date" id="date"></div>
+      <div class="time" id="time"></div>
+    </div>
+
+    <div class="content">
+      <h1>Plant a Tree Today</h1>
+      <p class="subtitle">For a Greener, Cleaner Tomorrow 🌿🌍<br>Join thousands healing our planet</p>
+      <a href="#join" class="cta">Start Planting Now →</a>
+    </div>
+
+    <!-- Animated Scene -->
+    <div class="scene">
+      <div class="ground"></div>
+
+      <div class="person">🧑‍🌾</div>
+
+      <div class="tree-wrapper">
+        <svg class="tree" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
+          <!-- Trunk -->
+          <rect x="140" y="280" width="20" height="220" fill="#5d4037" rx="10"/>
+          <!-- Branches -->
+          <path d="M150 280 Q100 200 80 150" stroke="#4a2c0d" stroke-width="18" fill="none"/>
+          <path d="M150 280 Q200 200 220 150" stroke="#4a2c0d" stroke-width="18" fill="none"/>
+          <!-- Leaves -->
+          <circle cx="150" cy="120" r="80" fill="#27ae60"/>
+          <circle cx="100" cy="180" r="70" fill="#2ecc71"/>
+          <circle cx="200" cy="180" r="70" fill="#2ecc71"/>
+          <circle cx="150" cy="60" r="60" fill="#1abc9c"/>
+        </svg>
+      </div>
+
+      <!-- Falling Leaves -->
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+    </div>
+
+    <div class="scroll-hint">Scroll to explore more ↓</div>
+  </div>
+
+  <script>
+    // Real-time Date & Time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('date').textContent = 
+        now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      
+      const timeStr = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('time').textContent = timeStr;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
 <!-- ===== HOW IT WORKS + TRUST SECTION ===== -->
 <section class="how-it-works" style="padding: 60px 20px; background: rgba(255,255,255,0.85); max-width: 1100px; margin: 0 auto; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
   <h2 style="text-align: center; color: #2e7d32; margin-bottom: 40px; font-size: 2.4rem;">
