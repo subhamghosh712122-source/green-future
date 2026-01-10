@@ -599,7 +599,14 @@
   <button onclick="takePledge()" id="pledge-btn">
     🌱 I Take the Pledge
   </button>
+<button id="pledgeBtn" class="pledge-btn">
+  🌱 I Take the Pledge
+</button>
 
+<p>
+  🌳 <span id="pledgeCount">120</span> people have pledged
+</p>
+  
   <p id="thankyou" style="display:none;">
     💚 Thank you for taking a step towards a greener future!
   </p>
@@ -1145,6 +1152,17 @@ Each moment reflects our commitment to a greener future.
     updateCount();
   });
 </script>
+  
+  <script>
+  let count = 120;
+
+  document.getElementById("pledgeBtn").addEventListener("click", function () {
+    count++;
+    document.getElementById("pledgeCount").innerText = count;
+    alert("✅ Thank you for taking the Green Pledge!");
+  });
+</script>
+  
  <script>
   let index = 0;
   const testimonials = document.querySelectorAll('.testimonial-box');
