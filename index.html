@@ -959,6 +959,62 @@ Each moment reflects our commitment to a greener future.
     </p>
   </div>
 </section>
+<section id="eco-calendar" style="padding:30px;">
+  <h2>📅 Eco Calendar</h2>
+  <p>পরিবেশ সংক্রান্ত গুরুত্বপূর্ণ দিনগুলি জানুন ও সচেতন হন</p>
+
+  <select id="monthSelect" onchange="showEvents()"
+          style="padding:10px; border-radius:10px;">
+    <option value="">-- মাস নির্বাচন করুন --</option>
+    <option value="march">March</option>
+    <option value="april">April</option>
+    <option value="june">June</option>
+    <option value="july">July</option>
+    <option value="september">September</option>
+    <option value="october">October</option>
+    <option value="december">December</option>
+  </select>
+
+  <div id="eventBox"
+       style="
+        margin-top:20px;
+        padding:20px;
+        border-radius:12px;
+        background:#f0fff4;">
+    একটি মাস নির্বাচন করুন 🌱
+  </div>
+</section> 
+<section id="eco-calendar" style="padding:30px;">
+  <h2>📅 Eco Calendar</h2>
+
+  <button onclick="toggleLang()"
+    style="margin-bottom:15px; padding:8px 14px;">
+    🌐 বাংলা / English
+  </button>
+
+  <div id="todayBox"
+       style="padding:20px; background:#e6fffa; border-radius:12px;">
+    Loading today’s eco day...
+  </div>
+
+  <br>
+
+  <a id="shareEcoDay"
+     href="#"
+     target="_blank"
+     style="
+      display:inline-block;
+      background:#25D366;
+      color:white;
+      padding:10px 18px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:bold;">
+    📲 Share Eco Day on WhatsApp
+  </a>
+</section>
+
+
   
 <section id="team">
   <h2>Admin, Members & Volunteers</h2>
@@ -1223,11 +1279,127 @@ function nextQuestion() {
 loadQuestion();
 </script>
 
+<script>
+const ecoEvents = {
+  march: [
+    "🌍 22 March – World Water Day\nপানির গুরুত্ব ও সংরক্ষণ সম্পর্কে সচেতনতা"
+  ],
+  april: [
+    "🌱 22 April – Earth Day\nপৃথিবীকে রক্ষা করার অঙ্গীকারের দিন"
+  ],
+  june: [
+    "🌿 5 June – World Environment Day\nপরিবেশ রক্ষার জন্য বিশ্বব্যাপী উদ্যোগ"
+  ],
+  july: [
+    "🌳 28 July – World Nature Conservation Day\nপ্রকৃতি ও জীববৈচিত্র্য সংরক্ষণ"
+  ],
+  september: [
+    "♻ 16 September – World Ozone Day\nওজোন স্তর রক্ষার গুরুত্ব"
+  ],
+  october: [
+    "🐾 4 October – World Animal Day\nপ্রাণীদের সুরক্ষা ও অধিকার"
+  ],
+  december: [
+    "🌊 5 December – World Soil Day\nমাটি সংরক্ষণ ও কৃষির গুরুত্ব"
+  ]
+};
 
+function showEvents() {
+  const month = document.getElementById("monthSelect").value;
+  const box = document.getElementById("eventBox");
 
+  if (!month) {
+    box.innerText = "একটি মাস নির্বাচন করুন 🌱";
+    return;
+  }
+
+  box.innerText = ecoEvents[month].join("\n\n");
+}
+</script>
+<script>
+let lang = "bn";
+
+const ecoCalendar = {
+  "3-22": {
+    bn: {
+      title: "🌍 বিশ্ব জল দিবস",
+      action: "আজ জল অপচয় করবেন না, যতটা সম্ভব জল সংরক্ষণ করুন।"
+    },
+    en: {
+      title: "🌍 World Water Day",
+      action: "Save water today and avoid unnecessary usage."
+    }
+  },
+  "4-22": {
+    bn: {
+      title: "🌱 পৃথিবী দিবস",
+      action: "আজ একটি গাছ লাগান বা একটি গাছের যত্ন নিন।"
+    },
+    en: {
+      title: "🌱 Earth Day",
+      action: "Plant a tree or care for nature today."
+    }
+  },
+  "6-5": {
+    bn: {
+      title: "🌿 বিশ্ব পরিবেশ দিবস",
+      action: "আজ single-use plastic ব্যবহার করবেন না।"
+    },
+    en: {
+      title: "🌿 World Environment Day",
+      action: "Avoid single-use plastic today."
+    }
+  },
+  "9-16": {
+    bn: {
+      title: "♻ ওজোন দিবস",
+      action: "আজ পরিবেশ দূষণ কমাতে সচেতন হোন।"
+    },
+    en: {
+      title: "♻ World Ozone Day",
+      action: "Be aware about pollution today."
+    }
+  }
+};
+
+function loadTodayEcoDay() {
+  const d = new Date();
+  const key = (d.getMonth() + 1) + "-" + d.getDate();
+  const box = document.getElementById("todayBox");
+
+  if (ecoCalendar[key]) {
+    const data = ecoCalendar[key][lang];
+    box.innerHTML = `
+      <h3>${data.title}</h3>
+      <p><strong>What you can do today:</strong><br>${data.action}</p>
+    `;
+
+    const siteLink = window.location.href;
+    const shareText =
+      data.title + "%0A" +
+      "What you can do today:%0A" +
+      data.action + "%0A%0A" +
+      "Learn more: " + siteLink;
+
+    document.getElementById("shareEcoDay").href =
+      "https://wa.me/?text=" + shareText;
+  } else {
+    box.innerHTML = "🌱 আজ কোনও নির্দিষ্ট Eco Day নেই, তবুও পরিবেশ বাঁচান।";
+  }
+}
+
+function toggleLang() {
+  lang = (lang === "bn") ? "en" : "bn";
+  loadTodayEcoDay();
+}
+
+loadTodayEcoDay();
+</script>
  
   
 
+  
+  
 
 </body>
 </html>
