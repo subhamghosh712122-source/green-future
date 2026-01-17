@@ -5,61 +5,83 @@
   <title>Green Future</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>  
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f0fff4;
-      line-height: 1.8; 
-    }
+/* ===== GLOBAL ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f0fff4;
+  color: #123c1e;              /* readable dark green */
+  line-height: 1.8;
+}
 
-    header {
+/* ===== HEADER ===== */
+header {
   background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
   color: #1b5e20;
   padding: 30px 15px;
   text-align: center;
 }
 
+header h1,
+header h2,
+header p {
+  color: #1b5e20;
+}
+
+/* ===== NAV ===== */
 nav {
-  background: #a5d6a7;
+  background: #81c784;         /* lighter green */
   padding: 12px;
   text-align: center;
 }
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
 
-    section {
-      padding: 25px;
-      max-width: 900px;
-      margin: auto;
-    }
+nav a {
+  color: #0b3d1e;              /* dark text */
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    h2 {
-      color: #22543d;
-      margin-top: 40px;
-    }
+nav a:hover {
+  text-decoration: underline;
+  color: #1b5e20;
+}
 
-    footer {
-      background: #22543d;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+/* ===== SECTIONS ===== */
+section {
+  padding: 25px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-  /* ===== TEAM SECTION ===== */
+/* ===== HEADINGS ===== */
+h2 {
+  color: #0b3d1e;
+  margin-top: 40px;
+}
 
+/* ===== CARD / WHITE BOX ===== */
+.card {
+  background: #ffffff;
+  color: #123c1e;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #22543d;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* ===== TEAM SECTION ===== */
 #team {
   padding: 60px 20px;
   background: #f0fff4;
@@ -77,7 +99,7 @@ nav {
   width: 300px;
   padding: 18px;
   border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
   text-align: center;
 }
 
@@ -98,120 +120,168 @@ nav {
   font-weight: bold;
   color: #22543d;
   margin-bottom: 10px;
-}  
-  
-  #youtube {
+}
+
+/* ===== FIX FOR ALL TEXT VISIBILITY ===== */
+p, span, li {
+  color: #123c1e;
+}
+
+/* ===== MOBILE FRIENDLY ===== */
+@media (max-width: 600px) {
+  nav a {
+    display: inline-block;
+    margin: 6px;
+  }
+
+  .team-card {
+    width: 100%;
+  }
+/* ===== YOUTUBE SECTION ===== */
+#youtube {
   padding: 40px 20px;
-  background: #ffffff;
+  background: #f0fff4;            /* light green, eye-friendly */
   text-align: center;
 }
 
 #youtube h2 {
-  color: #22543d;
+  color: #1b5e20;                 /* darker green for visibility */
   margin-bottom: 15px;
 }
 
+#youtube p {
+  color: #22543d;
+}
+
+/* ===== LIST ===== */
 #youtube ul {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 #youtube ul li {
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
+/* ===== YOUTUBE LINKS ===== */
 #youtube ul li a {
   text-decoration: none;
-  color: #cc0000;
+  color: #c62828;                 /* softer red (not harsh) */
   font-weight: bold;
-}
-   .join-btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:14px 28px;
-  background:#2f855a;
-  color:white;
-  text-decoration:none;
-  border-radius:30px;
-  font-weight:bold;
+  transition: color 0.3s ease;
 }
 
-.join-btn:hover{
-  background:#276749;
-} 
-    /* Nature Floating Animation */
+#youtube ul li a:hover {
+  color: #8e0000;
+  text-decoration: underline;
+}
+
+/* ===== JOIN BUTTON ===== */
+.join-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #2f855a, #38a169);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+  background: linear-gradient(135deg, #276749, #2f855a);
+  transform: translateY(-2px);
+  
+/* ===== Floating Nature Icons (Bottom Right) ===== */
 .nature-animation {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 5;
+  z-index: 3;               /* কমানো হয়েছে যাতে লেখা ঢেকে না দেয় */
+  pointer-events: none;     /* click block করবে না */
 }
 
 .nature-animation span {
   display: inline-block;
-  font-size: 34px;
-  margin: 5px;
-  animation: floatLeaf 4s ease-in-out infinite;
-  opacity: 0.85;
+  font-size: 32px;
+  margin: 4px;
+  animation: floatLeaf 5s ease-in-out infinite;
+  opacity: 0.75;
 }
 
 .nature-animation span:nth-child(2) {
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 }
 
 .nature-animation span:nth-child(3) {
-  animation-delay: 2s;
+  animation-delay: 3s;
 }
 
 @keyframes floatLeaf {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
   100% { transform: translateY(0); }
 }
-.tree-soft{
-  font-size:60px;
-  margin:20px 0;
-  animation: softGrow 2.5s ease-out forwards;
+
+/* ===== Soft Growing Tree ===== */
+.tree-soft {
+  font-size: 56px;
+  margin: 18px 0;
+  animation: softGrow 2.8s ease-out forwards;
 }
 
-@keyframes softGrow{
-  from{transform:scale(0.5); opacity:0;}
-  to{transform:scale(1); opacity:1;}
-}
-    .leaf{
-  position:fixed;
-  top:-40px;
-  font-size:22px;
-  animation: fallLeaf 12s linear infinite;
-  opacity:0.6;
+@keyframes softGrow {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
 }
 
-.leaf:nth-child(2){ left:70%; animation-delay:5s; }
-.leaf:nth-child(1){ left:20%; }
-
-@keyframes fallLeaf{
-  to{ transform:translateY(110vh); }
+/* ===== Falling Leaves (Background) ===== */
+.leaf {
+  position: fixed;
+  top: -40px;
+  font-size: 20px;
+  animation: fallLeaf 14s linear infinite;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
 }
 
-   .eco-soft span{
-  font-size:36px;
-  margin:15px;
-  display:inline-block;
-  animation:pulseSoft 3s infinite;
+.leaf:nth-child(1) { left: 20%; animation-delay: 0s; }
+.leaf:nth-child(2) { left: 55%; animation-delay: 4s; }
+.leaf:nth-child(3) { left: 80%; animation-delay: 8s; }
+
+@keyframes fallLeaf {
+  from { transform: translateY(-10vh); }
+  to   { transform: translateY(110vh); }
 }
 
-@keyframes pulseSoft{
-  50%{ transform:scale(1.15); }
+/* ===== Eco Pulse Icons ===== */
+.eco-soft span {
+  font-size: 34px;
+  margin: 12px;
+  display: inline-block;
+  animation: pulseSoft 3.2s ease-in-out infinite;
 }
 
-    .youtube img{
-  transition:0.3s ease;
+@keyframes pulseSoft {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.12); }
 }
 
-.youtube img:hover{
-  transform:scale(1.05);
+/* ===== YouTube Hover Effect ===== */
+.youtube img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
 }
-    /* Impact Section */
+
+.youtube img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+  /* ===== Impact Section ===== */
 .impact-section {
   background: #eaf7ee;
   padding: 50px 20px;
@@ -225,21 +295,21 @@ nav {
 
 .impact-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px;
   max-width: 900px;
   margin: auto;
 }
 
 .impact-box {
-  background: white;
+  background: #ffffff;
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .impact-box .count {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: bold;
   color: #2f855a;
 }
@@ -247,7 +317,10 @@ nav {
 .impact-box p {
   margin-top: 10px;
   font-weight: 600;
+  color: #22543d;
 }
+
+/* ===== Testimonial Section ===== */
 .testimonial-section {
   background: #f0fff4;
   padding: 50px 20px;
@@ -262,10 +335,10 @@ nav {
 .testimonial-box {
   max-width: 700px;
   margin: 20px auto;
-  background: white;
+  background: #ffffff;
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   display: none;
 }
 
@@ -276,7 +349,10 @@ nav {
 .quote {
   font-style: italic;
   font-size: 18px;
+  color: #1b4332;
 }
+
+/* ===== Pledge Section ===== */
 .pledge-section {
   background: #f0fff4;
   padding: 50px 20px;
@@ -293,7 +369,7 @@ nav {
   border: none;
   border-radius: 30px;
   background: #2f855a;
-  color: white;
+  color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -308,25 +384,29 @@ nav {
   font-weight: bold;
   color: #22543d;
 }
-    
- .gallery-list li{
-  margin:10px 0;
-  font-size:16px;
-}
-.note{
-  font-style:italic;
-  color:#555;
-}
-.coming-soon-box{
-  margin-top:20px;
-  padding:15px;
-  border:2px dashed #68d391;
-  text-align:center;
-  border-radius:10px;
-  background:#f0fff4;
+
+/* ===== Gallery ===== */
+.gallery-list li {
+  margin: 10px 0;
+  font-size: 16px;
 }
 
-  .local-area {
+.note {
+  font-style: italic;
+  color: #555;
+}
+
+.coming-soon-box {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px dashed #68d391;
+  text-align: center;
+  border-radius: 12px;
+  background: #f0fff4;
+}
+
+/* ===== Local Area Section ===== */
+.local-area {
   background: #ffffff;
   margin: 40px 15px;
   padding: 30px 20px;
@@ -354,41 +434,42 @@ nav {
 .local-area li {
   font-size: 16px;
   padding: 8px 0;
-  opacity: 1;
-  transform: translateY(10px);
-}
-#plantation-cooperation{
-  padding:40px 20px;
-  background:#f0fff4;
-  margin:40px 0;
-  border-radius:12px;
 }
 
-#plantation-cooperation h2{
-  text-align:center;
-  color:#2f855a;
-  margin-bottom:20px;
-}
-.plantation-text{
-  font-size:16px;
-  line-height:1.9;
-  text-align:justify;
-  max-width:1000px;
-  margin:auto;
-  color:#1b4332;   /* 🔥 এই লাইনটা যোগ করো */
+/* ===== Plantation & Cooperation ===== */
+#plantation-cooperation {
+  padding: 40px 20px;
+  background: #f0fff4;
+  margin: 40px 0;
+  border-radius: 14px;
 }
 
+#plantation-cooperation h2 {
+  text-align: center;
+  color: #2f855a;
+  margin-bottom: 20px;
 }
+
+.plantation-text {
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: justify;
+  max-width: 1000px;
+  margin: auto;
+  color: #1b4332; /* ✅ Text visibility fix */
+}
+  
+/* ===== West Bengal Plastic Section ===== */
 #wb-plastic {
   padding: 40px 20px;
   background: #f0fff4;
-  border-radius: 12px;
+  border-radius: 14px;
   margin: 40px 0;
 }
 
 #wb-plastic h2 {
   text-align: center;
-  color: #2f855a;
+  color: #1b5e20;
   margin-bottom: 15px;
 }
 
@@ -398,8 +479,10 @@ nav {
   text-align: justify;
   line-height: 1.9;
   font-size: 16px;
+  color: #1b4332;
 }
 
+/* ===== City Buttons ===== */
 .city-list {
   text-align: center;
   margin-top: 25px;
@@ -409,17 +492,20 @@ nav {
   margin: 6px;
   padding: 10px 18px;
   border: none;
-  border-radius: 20px;
+  border-radius: 22px;
   background: #2f855a;
-  color: white;
+  color: #ffffff;
   font-size: 15px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .city-list button:hover {
-  background: #22543d;
+  background: #276749;
+  transform: translateY(-1px);
 }
 
+/* ===== City Images ===== */
 .city-images {
   margin-top: 25px;
   text-align: center;
@@ -428,19 +514,22 @@ nav {
 .city-images img {
   max-width: 90%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   display: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
 }
 
 #cityCaption {
   margin-top: 10px;
   font-style: italic;
-  color: #444;
+  color: #2d3748;
 }
+
+/* ===== Plastic Flow Section ===== */
 #plastic-flow {
   padding: 40px 20px;
   text-align: center;
+  background: #f0fff4;
 }
 
 .flow-container {
@@ -453,7 +542,7 @@ nav {
 
 .flow-item {
   background: #2f855a;
-  color: #fff;
+  color: #ffffff;
   padding: 12px 16px;
   border-radius: 25px;
   font-size: 14px;
@@ -462,6 +551,7 @@ nav {
 
 .arrow {
   font-size: 20px;
+  color: #22543d;
 }
 
 .danger {
@@ -470,50 +560,56 @@ nav {
 }
 
 .human {
-  background: #000;
+  background: #1a202c;
 }
 
-/* Animations */
+/* ===== Animations ===== */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(197,48,48,0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(197,48,48,0); }
+  0% { box-shadow: 0 0 0 0 rgba(197,48,48,0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(197,48,48,0); }
   100% { box-shadow: 0 0 0 0 rgba(197,48,48,0); }
 }
+
+/* ===== Before After ===== */
 #before-after {
   text-align: center;
   padding: 40px 20px;
+  background: #f0fff4;
 }
 
 .toggle-box button {
   background: #2f855a;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 12px 18px;
   margin: 8px;
   border-radius: 25px;
   font-size: 15px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .toggle-box button:hover {
-  background: #22543d;
+  background: #276749;
 }
 
 .result-box {
   margin-top: 20px;
   padding: 20px;
-  background: #f0fff4;
+  background: #ffffff;
   border-radius: 15px;
   font-size: 16px;
+  color: #1b4332;
   animation: fadeUp 0.6s ease;
 }
 
-  #plastic-quiz {
+/* ===== Plastic Quiz ===== */
+#plastic-quiz {
   padding: 40px 20px;
   text-align: center;
   background: #f0fff4;
@@ -535,17 +631,19 @@ nav {
   border: none;
   border-radius: 25px;
   background: #2f855a;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .options button:hover {
-  background: #22543d;
+  background: #276749;
 }
 
 #feedback {
   margin-top: 10px;
   font-weight: bold;
+  color: #1b4332;
 }
 
 #nextBtn {
@@ -553,13 +651,15 @@ nav {
   padding: 10px 18px;
   border: none;
   border-radius: 20px;
-  background: #000;
-  color: white;
+  background: #1a202c;
+  color: #ffffff;
   cursor: pointer;
 }
+
+/* ===== Pledge Card ===== */
 .pledge-card {
   border: 2px solid #7bc47f;
-  box-shadow: 0 0 15px rgba(123, 196, 127, 0.4);
+  box-shadow: 0 0 15px rgba(123,196,127,0.4);
   border-radius: 18px;
   padding: 24px;
   max-width: 420px;
@@ -568,85 +668,83 @@ nav {
   background: #f4fff6;
 }
 
-/* Heading */
 .pledge-card h2 {
   color: #2f7d32;
   margin-bottom: 10px;
 }
 
-/* Text */
 .pledge-text {
   font-size: 15px;
   color: #444;
   margin-bottom: 20px;
 }
 
-/* Button */
 .pledge-btn {
   border: 2px solid #2f7d32;
   border-radius: 30px;
   background-color: #2f7d32;
-  color: white;
+  color: #ffffff;
   padding: 14px 30px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
-}
-
-/* Button hover */
-.pledge-btn:hover {
-  background-color: white;
-  color: #2f7d32;
-}
-
-/* Remove mobile tap highlight */
-.pledge-btn {
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Count */
+.pledge-btn:hover {
+  background-color: #ffffff;
+  color: #2f7d32;
+}
+
 .pledge-count {
   margin-top: 16px;
   font-weight: bold;
   color: #2f7d32;
 }
+
+/* ===== Heading Safety ===== */
 h1, h2, h3 {
-  color: #0b3d1e !important;
+  color: #0b3d1e;
 }
 
-    .dark-section h2,
+.dark-section h2,
 .dark-section p {
   color: #ffffff !important;
 }
 
-
-
     
-/* ===== DARK GREEN SECTION FIX ===== */
+/* ===== DARK GREEN SECTION (CLEAN FIX) ===== */
 .dark-section {
-  background: linear-gradient(135deg, #0f3d1f, #145c2e);
+  background: linear-gradient(135deg, #145c2e, #0f3d1f);
+  color: #eaffea;                 /* default text color */
 }
 
 /* Headings */
 .dark-section h1,
 .dark-section h2,
 .dark-section h3 {
-  color: #ffffff !important;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  color: #ffffff;                 /* no !important needed */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 
 /* Normal text */
 .dark-section p,
 .dark-section li,
 .dark-section span {
-  color: #eaffea !important;
+  color: #eaffea;
 }
 
-/* Buttons inside dark section */
-.dark-section button,
-.dark-section a {
-  color: #ffffff !important;
+/* Links & buttons */
+.dark-section a,
+.dark-section button {
+  color: #ffffff;
+}
+
+/* Links hover (important for visibility) */
+.dark-section a:hover {
+  color: #c6f6d5;
+  text-decoration: underline;
 }
 
 /* Light cards inside dark section */
@@ -655,8 +753,16 @@ h1, h2, h3 {
 .dark-section .coming-soon-box {
   background: #ffffff;
   color: #1f2933;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
+/* Ensure text inside cards is readable */
+.dark-section .card p,
+.dark-section .result-box p,
+.dark-section .coming-soon-box p {
+  color: #1f2933;
+}
 
     
     
